@@ -4310,9 +4310,9 @@ class InstaPy:
 
         # set QS if peak values are eligible
         if (peaks_are_tuple and
-                peaks_are_provided and
-                peaks_are_valid and
-                peaks_are_good):
+            peaks_are_provided and
+            peaks_are_valid and
+            peaks_are_good):
 
             peaks = {"likes": {"hourly": peak_likes[0],
                                "daily": peak_likes[1]},
