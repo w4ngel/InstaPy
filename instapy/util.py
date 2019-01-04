@@ -1849,3 +1849,18 @@ def save_account_progress(browser, username, logger):
             conn.commit()
     except Exception:
         logger.exception('message')
+
+
+def get_hardcode_following_status(browser, username, logger, take_action=True):
+    """Checks the following count and takes action appropriately if near limits."""
+    follower_count, following_count = get_relationship_counts(browser,
+                                                              username,
+                                                              logger)
+    if following_count is not None:
+        if following_count >= 7000:
+            logger.warning("Warning; your following is near the Instagram "
+                           "limits, we recommend you use unfollow_users to not"
+                           " get blocked. Currently Following: {}"
+                           .format(following_count))
+
+
